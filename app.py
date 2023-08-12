@@ -6,3 +6,9 @@ def mul(a,b):
     return a*b
 def sub(a,b):
     return a-b
+def fact(a):
+    f=1
+    for i in range(1,a+1):
+        f=f*i
+        
+    return f
