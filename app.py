@@ -12,5 +12,8 @@ def fact(a):
     f=1
     for i in range(1,a+1):
         f=f*i
-        
     return f
+def addandsubb(a,b):
+    add=a+b
+    sub=a-b
+    return add,sub
