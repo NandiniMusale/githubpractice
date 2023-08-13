@@ -17,3 +17,5 @@ def addandsubb(a,b):
     add=a+b
     sub=a-b
     return add,sub
+def summation(a,b):
+    return a+b
