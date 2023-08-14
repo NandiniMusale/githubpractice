@@ -2,10 +2,6 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-
-
-
 df=pd.read_csv(r"C:\Users\DELL\Downloads\wine+quality\winequality-red.csv",sep=";")
 X=df.iloc[:,:-1]
 Y=df["quality"]
@@ -13,21 +9,21 @@ from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(X,Y,test_size=0.33,random_state=42)
 from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()
-x_train=scaler.fit_transform(x_train)
-x_test=scaler.transform(x_test)
+x_train_scaled=scaler.fit_transform(x_train)
+x_test_scaled=scaler.transform(x_test)
 #logistic regression
 from sklearn.linear_model import LogisticRegression
 model=LogisticRegression()
-model.fit(x_train,y_train)
-y_pred=model.predict(x_test)
+model.fit(x_train_scaled,y_train)
+y_pred=model.predict(x_test_scaled)
 from sklearn.metrics import accuracy_score
 l_score=accuracy_score(y_pred,y_test)
 print(l_score)
 #support vector classifier
 from sklearn.svm import SVC
 svm_model=SVC()
-svm_model.fit(x_train,y_train)
-y_pred_svm=svm_model.predict(x_test)
+svm_model.fit(x_train_scaled,y_train)
+y_pred_svm=svm_model.predict(x_test_scaled)
 from sklearn.metrics import accuracy_score
 s_score=accuracy_score(y_pred_svm,y_test)
 print(s_score)
